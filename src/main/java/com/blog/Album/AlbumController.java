@@ -35,6 +35,15 @@ public class AlbumController extends Controller {
         render("album_admin.html");
     }
 
+    //删除照片
+    public void deletePic(){
+        Album.dao.deleteById(getParaToInt());
+        setAttr("albumPage", Album.dao.paginate(getParaToInt(0, 1), 15));
+        // render("blog_add.html");
+        redirect("/admin");
+        //render("album_admin.html");
+    }
+
     //管理相册页面
     public void admin(){
         Page<Album> page = Album.dao.paginate(getParaToInt(0, 1), 10);

@@ -120,12 +120,13 @@ public class BlogController extends Controller {
 		render("blog_add.html");
 	}
 
-	//删除
+	//删除博客，删除之后重定向
 	@Before(Tx.class)
-	public void delete() {
+	public void deleteBlog() {
 		Blog.dao.deleteById(getParaToInt());
 		setAttr("blogPage", Blog.dao.paginate(getParaToInt(0, 1), 15));
-		render("blog_add.html");
+		// render("blog_add.html");
+        redirect("/admin");
 	}
 
 	//跳转到管理登录页面

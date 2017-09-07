@@ -53,7 +53,9 @@ public class DemoConfig extends JFinalConfig {
 		ActiveRecordPlugin arp = new ActiveRecordPlugin(dp);
 		arp.setShowSql(true);
 		me.add(arp);
-		arp.addMapping("blog", Blog.class);	// 映射blog 表到 Blog模型
+		arp.addMapping("blog", Blog.class);	// 映射blog 表到 B
+
+        // log模型
 		arp.addMapping("comment", Comment.class);	// 评论model
 		arp.addMapping("album", Album.class);	// 相册model
 		arp.addMapping("info", Info.class);	// 网站信息model
